@@ -1,1 +1,1 @@
-select * from players;
+SELECT * FROM psl.umpire;
