@@ -31,15 +31,24 @@ CREATE TABLE `match` (
   `team_1_Id` int unsigned NOT NULL,
   `team_2_Id` int unsigned NOT NULL,
   `Commentator` varchar(80) NOT NULL,
-  `toss_Winner` int NOT NULL,
+  `toss_Winner` int unsigned NOT NULL,
   `choose_To` varchar(45) NOT NULL,
   `Score` int NOT NULL,
   `Stats` varchar(45) NOT NULL,
   `stadium_Id` int unsigned NOT NULL,
   `umpire_Id` int unsigned NOT NULL,
   PRIMARY KEY (`match_id`),
-  KEY `team match_idx` (`team_1_Id`,`team_2_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `team match_idx` (`team_1_Id`,`team_2_Id`),
+  KEY `team rivals2_idx` (`team_2_Id`),
+  KEY `umpire select_idx` (`umpire_Id`),
+  KEY `stadium select_idx` (`stadium_Id`),
+  KEY `team winner_idx` (`toss_Winner`),
+  CONSTRAINT `stadium select` FOREIGN KEY (`stadium_Id`) REFERENCES `stadium` (`stadium_Id`),
+  CONSTRAINT `team rivals` FOREIGN KEY (`team_1_Id`) REFERENCES `teams` (`team_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `team rivals2` FOREIGN KEY (`team_2_Id`) REFERENCES `teams` (`team_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `team winner` FOREIGN KEY (`toss_Winner`) REFERENCES `teams` (`team_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `umpire select` FOREIGN KEY (`umpire_Id`) REFERENCES `umpire` (`umpire_Id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +57,7 @@ CREATE TABLE `match` (
 
 LOCK TABLES `match` WRITE;
 /*!40000 ALTER TABLE `match` DISABLE KEYS */;
+INSERT INTO `match` VALUES (1,'2021-02-20','19:00:00',2,6,'Ramiz Raja',2,'Field',121,'Karachi won by 7 wickets',2,6),(2,'2021-02-21','14:00:00',3,5,'Ramiz Raja',3,'Field',140,'Lahore won by 4 wickets',2,7);
 /*!40000 ALTER TABLE `match` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +70,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-25 23:53:52
+-- Dump completed on 2023-06-26 23:22:58
