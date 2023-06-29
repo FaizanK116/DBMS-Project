@@ -48,7 +48,7 @@ CREATE TABLE `match` (
   CONSTRAINT `team rivals2` FOREIGN KEY (`team_2_Id`) REFERENCES `teams` (`team_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `team winner` FOREIGN KEY (`toss_Winner`) REFERENCES `teams` (`team_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `umpire select` FOREIGN KEY (`umpire_Id`) REFERENCES `umpire` (`umpire_Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +57,7 @@ CREATE TABLE `match` (
 
 LOCK TABLES `match` WRITE;
 /*!40000 ALTER TABLE `match` DISABLE KEYS */;
-INSERT INTO `match` VALUES (1,'2021-02-20','19:00:00',2,6,'Ramiz Raja',2,'Field',121,'Karachi won by 7 wickets',2,6),(2,'2021-02-21','14:00:00',3,5,'Ramiz Raja',3,'Field',140,'Lahore won by 4 wickets',2,7);
+INSERT INTO `match` VALUES (1,'2021-02-20','19:00:00',2,6,'Ramiz Raja',2,'Field',121,'Karachi won by 7 wickets',2,6),(2,'2021-02-21','14:00:00',3,5,'Ramiz Raja',3,'Field',140,'Lahore won by 4 wickets',2,7),(3,'2021-02-21','19:00:00',1,4,'Wasim Akram',1,'Field',150,'Islamabad won by 3 wickets',2,5),(4,'2021-02-22','19:00:00',3,6,'Urooj Mumtaz',3,'Field',178,'Lahore won 9 wickets',2,9),(5,'2021-02-23','19:00:00',4,5,'Alan Wilkins',5,'Field',193,'Peshawar won by 6 wockets',2,2),(6,'2021-02-24','19:00:00',1,2,'Danny Morrison',1,'Field',196,'Islamabad won 5 wickets',2,8),(7,'2021-02-26','15:00:00',3,4,'JP Duminy',4,'Field',157,'Multan won by 7 wickets',2,1),(8,'2021-02-26','20:00:00',5,6,'Sana Mir',5,'Field',198,'Peshawar won by 3 wickets',2,5),(9,'2021-02-27','14:00:00',2,4,'Ramiz Raja',2,'Field',195,'Karachi won by 7 wickets',2,8),(10,'2021-02-27','19:00:00',1,5,'Dominic Cork',5,'Field',118,'Peshawar won 6 wickets',2,7);
 /*!40000 ALTER TABLE `match` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -70,4 +70,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-26 23:22:58
+-- Dump completed on 2023-06-29 20:46:33
