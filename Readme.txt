@@ -1,2 +1,3 @@
 PSL Project
-Schema based on the ER
+The word file contains the ER Model
+the rest is the data 
